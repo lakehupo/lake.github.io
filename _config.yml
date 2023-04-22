@@ -1,0 +1,232 @@
+# Hexo Configuration
+## Docs: https://hexo.io/docs/configuration.html
+## Source: https://github.com/hexojs/hexo/
+# Site
+title: 子书承宇
+favicon: https://hp-l.gitee.io/assets/img/icon1.png
+subtitle: "一蓑烟雨任平生"
+description: "硬件"
+keywords:
+author: 子书承宇
+language: zh-CN
+# language:
+# - zh-CN
+# - zh-tw
+# - en
+timezone: "" # Asia/Shanghai
+
+# URL
+## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
+url: https://hp-l.gitee.io/
+root: /
+permalink: :year/:month/:day/:title/:post_title/
+permalink_defaults:
+pretty_urls:
+  trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
+  trailing_html: true # Set to false to remove trailing '.html' from permalinks
+
+# Directory
+source_dir: source
+public_dir: public
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+code_dir: downloads/code
+i18n_dir: :lang
+skip_render:
+  - "love/**"
+  # - "bb"
+
+# Writing
+new_post_name: :title.md # File name of new posts
+default_layout: post
+auto_spacing: true
+titlecase: false # Transform title into titlecase
+external_link:
+  enable: true # Open external links in new tab
+  field: post # Apply to the whole site 对整个网站（site）生效或仅对文章（post）生效
+  exclude: ""
+filename_case: 0
+render_drafts: false
+post_asset_folder: true
+relative_link: false
+future: true
+highlight:
+  enable: true
+  line_number: false
+  auto_detect: true
+  tab_replace: ""
+  wrap: false
+  hljs: true 
+prismjs:
+  enable: false
+  preprocess: true
+  line_number: false
+  tab_replace: ''
+# Home page setting
+# path: Root path for your blogs index page. (default = '')
+# per_page: Posts displayed per page. (0 = disable pagination)
+# order_by: Posts order. (Order by date descending by default)
+index_generator:
+  path: ""
+  per_page: 10
+  order_by: -date
+
+# Category & Tag
+default_category: uncategorized
+category_map:
+tag_map:
+
+# Metadata elements
+## https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
+meta_generator: true
+
+# Date / Time format
+## Hexo uses Moment.js to parse and display date
+## You can customize the date format as defined in
+## http://momentjs.com/docs/#/displaying/format/
+date_format: YYYY-MM-DD
+time_format: HH:mm:ss
+## Use post's date for updated date unless set in front-matter
+use_date_for_updated: false
+
+# Pagination
+## Set per_page to 0 to disable pagination
+per_page: 5
+pagination_dir: page
+
+# Include / Exclude file(s)
+## include:/exclude: options only apply to the 'source/' folder
+include:
+exclude:
+ignore:
+
+# Deployment
+## Docs: https://hexo.io/docs/deployment.html
+# git config --global user.email ""
+deploy:
+  type: "git"
+  repo:
+    git@gitee.com:HP-L/hp-l.git #gitee
+    # repo: https://github.com/HP-L/HP-L.github.io.git   #github
+  branch: master
+
+# Extensions
+## Plugins: https://hexo.io/plugins/
+#RSS订阅
+plugin:
+  - hexo-generator-feed
+#Feed Atom
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
+
+#landscape  next  obsidian   ayer
+#theme: landscape   #默认
+####theme: obsidian
+#theme: next
+#theme: ayer    #海
+# theme: butterfly   #台湾
+#theme: matery   #闪烁之狐
+##theme: clover
+####theme: material
+##theme: inside
+#theme: material-x  #简单纸质
+##theme: Acetolog #简单卡片
+# theme: volantis #简单纸质 plus
+# theme: volantis-heson
+# Reading progress bar  进度条
+theme: argon
+
+reading_progress:
+  enable: true
+  # Available values: top | bottom
+  position: top
+  color: "#37c6c0"
+  height: 2px
+
+# 网站 文字转拼音
+permalink_pinyin:
+  enable: true
+  separator: "_" # default: '-'
+
+use_cdn: true
+
+markdown:
+  render:
+    html: true
+    xhtmlOut: false
+    breaks: true
+    linkify: true
+    typographer: true
+    quotes: "“”‘’"
+    plugins:
+      - markdown-it-abbr
+      - markdown-it-footnote
+      - markdown-it-ins
+      - markdown-it-sub
+      - markdown-it-sup
+    anchors:
+      level: 2
+      collisionSuffix: "v"
+      permalink: true
+      permalinkClass: header-anchor
+      permalinkSymbol: ¶
+
+google_analytics_key: Google Analytics Key
+
+# 哔哔功能配置
+# 关注公众号 "黑石哔哔"，发送: //bindCurrentUser:你的APPID,你的MASTERKEY,你的RESTAPI
+# 可用leancloud国际版，国际版api为 https://appid前八位.api.lncldglobal.com
+bb:
+  title: 哔哔 #页面title
+  appId: jef4t2ru1vk2vvuAOdhLUdbf-gzGzoHsz
+  appKey: Vzrh6DrOFFALSJh2bM40w0C2
+  serverURLs: https://jef4t2ru.lc-cn-n1-shared.com #你的api地址
+  limit: 10 #显示条数
+  path: bb #路径名称 例如：https://你的域名/bb
+  content: "👉🏼此说说通过📱手机微信发出，主要记录子书承宇碎片化思考和动态。📑" #显示在哔哔上方,如不需要注释即可
+
+# offline config passed to sw-precache.
+service_worker:
+  maximumFileSizeToCacheInBytes: 5242880
+  staticFileGlobs:
+    - public/**/*.{js,html,css,png,jpg,gif,svg,eot,ttf,woff,woff2}
+  stripPrefix: public
+  verbose: false
+
+electric_clock:
+  priority: 5
+  enable: true
+  enable_page: all
+  layout:
+    type: class
+    name: sticky_layout
+    index: 0
+  temple_html: '<div class="card-widget card-clock">
+  <!-- 挂载容器 -->
+  <div class="card-glass">
+    <div class="card-background">
+      <div class="card-content">
+        <div id="hexo_electric_clock">
+          <img
+            id="card-clock-loading"
+            src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-clock/clock/images/weather/loading.gif"
+            style="height: 120px; width: 100%;"
+            data-ll-status="loading"
+            class="entered loading"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>'
+
+
+search:
+  path: search.xml
+  field: post
+  content: true
+
+
